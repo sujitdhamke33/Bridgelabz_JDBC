@@ -1,6 +1,7 @@
 package org.example;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,5 +82,33 @@ public class DriverLoad {
             throw new ExceptionClass("Data not updated please check");
         }
     }
+
+    public List<Employee_payroll> retrieveInfoDaterange(String url, String username, String password)
+    {
+        List<Employee_payroll> employeeList = new ArrayList<>();
+        try {
+            Connection connection=DriverManager.getConnection(url, username, password);
+            Statement statement = connection.createStatement();
+            String query="SELECT * FROM employee_payroll where startDate between '2024-03-05' and '2024-04-10'";
+            ResultSet res = statement.executeQuery(query);
+
+            while(res.next())
+            {
+                int id = res.getInt(1);
+                String name = res.getString(2);
+                String phoneNumber = res.getString(3);
+                String gender = res.getString(4);
+                double salary = res.getDouble(5);
+
+                Employee_payroll emp = new Employee_payroll(id, name, phoneNumber, gender, salary);
+                employeeList.add(emp);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return employeeList;
+    }
 }
+
 

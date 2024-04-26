@@ -38,4 +38,15 @@ class DriverLoadTest {
         Assertions.assertEquals(1,result);
     }
 
+    @Test
+    void dateRange() throws ExceptionClass{
+        List<Employee_payroll> result = dl.retrieveInfoDaterange(url,username,password);
+        Employee_payroll emp = result.get(0);
+        Assertions.assertEquals(1,emp.getId());
+        Assertions.assertEquals("sujit",emp.getName());
+        Assertions.assertEquals("1234",emp.getPhoneNumber());
+        Assertions.assertEquals("M",emp.getGender());
+        Assertions.assertEquals(26000.0,emp.getSalary());
+    }
+
 }
