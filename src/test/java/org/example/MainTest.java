@@ -49,4 +49,12 @@ class DriverLoadTest {
         Assertions.assertEquals(26000.0,emp.getSalary());
     }
 
+    @Test
+    public void AggerateoperationTestcase() throws ExceptionClass
+    {
+        double actualResult = dl.Aggerateoperation(url, username, password);
+
+        assertEquals(65000.0, actualResult,0.01);
+    }
+
 }

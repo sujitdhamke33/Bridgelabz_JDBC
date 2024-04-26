@@ -34,5 +34,8 @@ public class Main {
                     " Employee Name id : " + emp.getName()+ " Employee Number is : " + emp.getPhoneNumber() +
                     " Employee Gender is : " + emp.getGender() + " Employee salary is : " + emp.getSalary());
         }
+
+        double result1 = dl.Aggerateoperation(url,username,password);
+        System.out.println("sum of salary for gender male is : "+result1);
     }
 }

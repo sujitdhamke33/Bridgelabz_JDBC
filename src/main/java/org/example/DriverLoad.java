@@ -109,6 +109,29 @@ public class DriverLoad {
         }
         return employeeList;
     }
+
+    public double Aggerateoperation(String url, String username, String password)  throws ExceptionClass {
+
+        try {
+            Connection con=DriverManager.getConnection(url, username, password);
+            Statement statement = con.createStatement();
+            String query="select sum(basicpay) from employee_payroll where gender='M' group by gender";
+            ResultSet resultSet = statement.executeQuery(query);
+            double sum = 0;
+
+            while(resultSet.next())
+            {
+                sum=resultSet.getDouble(1);
+            }
+            con.close();
+            statement.close();
+
+            return sum;
+        } catch (SQLException e) {
+            throw new ExceptionClass("Not able calculate value of function...");
+        }
+
+    }
 }
 
 
