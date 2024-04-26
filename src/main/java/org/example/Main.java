@@ -18,5 +18,12 @@ public class Main {
                     " Employee Name id : " + emp.getName()+ " Employee Number is : " + emp.getPhoneNumber() +
                     " Employee Gender is : " + emp.getGender() + " Employee salary is : " + emp.getSalary());
         }
+
+        int executeUpdate = dl.Updatesalary(url,username,password);
+        if(executeUpdate>0){
+            System.out.println("Updated succesfully." + executeUpdate + " row(s) affected");
+        }else{
+            System.out.println("Update failed..!");
+        }
     }
 }

@@ -31,4 +31,11 @@ class DriverLoadTest {
       Assertions.assertEquals("M",emp.getGender());
       Assertions.assertEquals(26000.0,emp.getSalary());
     }
+
+    @Test
+    void updateSalaryTest() throws ExceptionClass{
+        int result = dl.Updatesalary(url,username,password);
+        Assertions.assertEquals(1,result);
+    }
+
 }

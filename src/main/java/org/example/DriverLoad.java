@@ -61,5 +61,22 @@ public class DriverLoad {
         }
         return employeeList;
     }
+
+
+    public int Updatesalary(String url, String username, String password) throws ExceptionClass{
+        try{
+            Connection con = DriverManager.getConnection(url,username,password);
+            Statement st = con.createStatement();
+            String query = "UPDATE employee_payroll \r\n"
+                    + "SET basicpay = 300000 \r\n"
+                    + "WHERE id = 7";
+           int executeUpdate = st.executeUpdate(query);
+
+
+          return executeUpdate;
+        }catch (SQLException e){
+            throw new ExceptionClass("Data not updated please check");
+        }
+    }
 }
 
