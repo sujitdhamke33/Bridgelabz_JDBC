@@ -66,14 +66,17 @@ public class DriverLoad {
     public int Updatesalary(String url, String username, String password) throws ExceptionClass{
         try{
             Connection con = DriverManager.getConnection(url,username,password);
-            Statement st = con.createStatement();
+
             String query = "UPDATE employee_payroll \r\n"
-                    + "SET basicpay = 300000 \r\n"
-                    + "WHERE id = 7";
-           int executeUpdate = st.executeUpdate(query);
-
-
-          return executeUpdate;
+                    + "SET salary = ?\r\n"
+                    + "WHERE id = ?";
+            PreparedStatement st = con.prepareStatement(query);
+            st.setDouble(1,350000);
+            st.setInt(2,8);
+            int result = st.executeUpdate();
+            con.close();
+            st.close();
+            return result;
         }catch (SQLException e){
             throw new ExceptionClass("Data not updated please check");
         }

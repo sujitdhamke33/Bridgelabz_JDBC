@@ -19,11 +19,12 @@ public class Main {
                     " Employee Gender is : " + emp.getGender() + " Employee salary is : " + emp.getSalary());
         }
 
-        int executeUpdate = dl.Updatesalary(url,username,password);
-        if(executeUpdate>0){
-            System.out.println("Updated succesfully." + executeUpdate + " row(s) affected");
-        }else{
-            System.out.println("Update failed..!");
-        }
+//        int executeUpdate = dl.Updatesalary(url,username,password);
+//
+//        if(executeUpdate>0){
+//            System.out.println("Updated succesfully." + executeUpdate + " row(s) affected");
+//        }else{
+//            System.out.println("Update failed..!");
+//        }
     }
 }
